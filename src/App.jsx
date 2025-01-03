@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import SearchBar from './componenets/SearchBar';
-import ImageGallery from './componenets/ImageGallery';
-import LoadMoreBtn from './componenets/LoadMoreBtn';
+import SearchBar from './components/SearchBar';
+import ImageGallery from './components/ImageGallery';
+import LoadMoreBtn from './components/LoadMoreBtn';
 import { RotatingLines } from 'react-loader-spinner';
 import axios from 'axios';
-import ImageModal from './componenets/ImageModal';
-import ErrorMessage from './componenets/ErrorMessage';
+import ImageModal from './components/ImageModal';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
   const [photos, setPhotos] = useState([]);
