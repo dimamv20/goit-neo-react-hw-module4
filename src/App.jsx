@@ -1,26 +1,26 @@
-import  {React, useEffect, useState } from 'react';
-import Modal from 'react-modal';
-import SearchBar from './components/SearchBar';
-import ImageGallery from './components/ImageGallery';
-import LoadMoreBtn from './components/LoadMoreBtn';
-import { RotatingLines } from 'react-loader-spinner';
-import axios from 'axios';
-import ImageModal from './components/ImageModal'
-import ErrorMessage from './components/ErrorMessage';
+import { React, useEffect, useState } from "react";
+import Modal from "react-modal";
+import SearchBar from "./components/SearchBar";
+import ImageGallery from "./components/ImageGallery";
+import LoadMoreBtn from "./components/LoadMoreBtn";
+import { RotatingLines } from "react-loader-spinner";
+import axios from "axios";
+import ImageModal from "./components/ImageModal";
+import ErrorMessage from "./components/ErrorMessage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const [error, setError] = useState(null);
-  const API_KEY = 'otxuwHzyr8BKcJRmkV8xMaQ1nL2BmuOVFP_8gLMlCek';
+  const API_KEY = "otxuwHzyr8BKcJRmkV8xMaQ1nL2BmuOVFP_8gLMlCek";
 
   useEffect(() => {
-    Modal.setAppElement('#root');
+    Modal.setAppElement("#root");
   }, []);
 
   const fetchImages = async (newQuery = query, newPage = page) => {
@@ -40,8 +40,8 @@ function App() {
         setPhotos((prevPhotos) => [...prevPhotos, ...response.data.results]);
       }
     } catch (error) {
-      setError('Failed to load images. Please try again later.');
-      console.error('Error fetching data from Unsplash API:', error);
+      setError("Failed to load images. Please try again later.");
+      console.error("Error fetching data from Unsplash API:", error);
     } finally {
       setIsLoading(false);
     }
@@ -71,19 +71,14 @@ function App() {
     <div>
       <SearchBar onSearch={handleSearch} />
       <ToastContainer autoClose={3000} />
-      {error ? (
-        <ErrorMessage message={error} />
-      ) : (
-        <>
-          <ImageGallery photos={photos} openModal={openModal} />
-          {isLoading && (
-            <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
-              <RotatingLines strokeColor="blue" strokeWidth="5" animationDuration="0.75" width="50" visible={true} />
-            </div>
-          )}
-          {photos.length > 0 && !isLoading && <LoadMoreBtn onClick={handleLoadMore} />}
-        </>
+      {error && <ErrorMessage message={error} />}
+      <ImageGallery photos={photos} openModal={openModal} />
+      {isLoading && (
+        <div style={{ display: "flex", justifyContent: "center", margin: "20px 0" }}>
+          <RotatingLines strokeColor="blue" strokeWidth="5" animationDuration="0.75" width="50" visible={true} />
+        </div>
       )}
+      {photos.length > 0 && !isLoading && !error && <LoadMoreBtn onClick={handleLoadMore} />}
       <ImageModal isOpen={!!selectedImage} image={selectedImage} closeModal={closeModal} />
     </div>
   );
