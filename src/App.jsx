@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import SearchBar from './assets/componenets/SearchBar';
-import ImageGallery from './assets/componenets/ImageGallery';
-import LoadMoreBtn from './assets/componenets/LoadMoreBtn';
+import SearchBar from './components/SearchBar';
+import ImageGallery from './components/ImageGallery';
+import LoadMoreBtn from './components/LoadMoreBtn';
 import { RotatingLines } from 'react-loader-spinner';
 import axios from 'axios';
 import ImageModal from './assets/componenets/ImageModal';

@@ -1,4 +1,5 @@
 import '../App.css'
+
 const ImageCard = ({ image, onClick }) => {
   return (
     <li className="ImageCards" onClick={onClick}>
