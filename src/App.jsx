@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import  {React, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import SearchBar from './components/SearchBar';
 import ImageGallery from './components/ImageGallery';
 import LoadMoreBtn from './components/LoadMoreBtn';
 import { RotatingLines } from 'react-loader-spinner';
 import axios from 'axios';
-import ImageModal from './componenets/ImageModal';
+import ImageModal from './components/ImageModal'
 import ErrorMessage from './components/ErrorMessage';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
