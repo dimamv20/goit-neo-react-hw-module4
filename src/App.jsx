@@ -5,8 +5,8 @@ import ImageGallery from './components/ImageGallery';
 import LoadMoreBtn from './components/LoadMoreBtn';
 import { RotatingLines } from 'react-loader-spinner';
 import axios from 'axios';
-import ImageModal from './assets/componenets/ImageModal';
-import ErrorMessage from './assets/componenets/ErrorMessage';
+import ImageModal from './componenets/ImageModal';
+import ErrorMessage from './components/ErrorMessage';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
