@@ -7,6 +7,8 @@ import { RotatingLines } from 'react-loader-spinner';
 import axios from 'axios';
 import ImageModal from './assets/componenets/ImageModal';
 import ErrorMessage from './assets/componenets/ErrorMessage';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -68,6 +70,7 @@ function App() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
+      <ToastContainer autoClose={3000} />
       {error ? (
         <ErrorMessage message={error} />
       ) : (
